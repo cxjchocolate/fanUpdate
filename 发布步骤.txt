@@ -1,0 +1,19 @@
+1. 生产update.zip文件，把本次需要更新的文件都放到里面，
+a)其中scm_1.0.0_2016***必须重命名为scm_1.0.0.jar
+b)app.version内容为：1.0.0-201602221800，每次更新需要更新app.version新版本号
+update.zip格式如下：
+update.zip
+ -- config_client
+   --store_skulist
+ -- properties
+   --app.version
+
+2. 使用Md5检验工具 V2.0.exe对update.zip产生md5值，例如：544d5a5cfb30b72cbfa9711ac1a42f3f
+
+3. 把update.zip 上传并覆盖web01.joyseed:/usr/local/nginx/html/download/update.zip
+
+4. 更新版本号文件，web01.joyseed:/usr/local/nginx/html/download/check_version
+a) 修改第一行为第一布中的新版本号
+b) 修改第二行为第二步中的md5验证码
+1.0.0-201602221800
+544d5a5cfb30b72cbfa9711ac1a42f3f
